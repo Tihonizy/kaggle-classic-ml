@@ -1,0 +1,13 @@
+numpy
+pandas
+polars
+scipy
+scikit-learn
+category_encoders
+hyperopt
+catboost
+shap
+statsmodels
+matplotlib
+seaborn
+tqdm

@@ -1,0 +1,22 @@
+# Competition data and model weights
+data/
+weights/
+*.pth
+*.pt
+*.ckpt
+*.npy
+
+# Generated submissions
+submission*.csv
+
+# Python and Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS and editors
+.DS_Store
+.vscode/
+.idea/
