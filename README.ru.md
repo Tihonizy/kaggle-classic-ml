@@ -35,9 +35,12 @@ pip install -r requirements.txt
 kaggle competitions download -c titanic -p titanic/data
 ```
 
-Titanic и House Prices читают `data/train.csv` и `data/test.csv` рядом с ноутбуком.
-Hull Tactical это code competition: в Kaggle он читает данные из `/kaggle/input`, локально из `data/`
-(`kaggle competitions download -c hull-tactical-market-prediction -p hull-tactical-market-prediction/data`).
+Локально каждый ноутбук читает файлы соревнования из `data/` рядом с собой и туда же пишет `submission.csv`
+(Hull Tactical: `kaggle competitions download -c hull-tactical-market-prediction -p hull-tactical-market-prediction/data`).
+
+Каждый ноутбук начинается с ячейки Environment с одним флагом `ON_KAGGLE = False`. Перед запуском в Kaggle его меняют
+на `True`: данные читаются из `/kaggle/input`, сабмит пишется в `/kaggle/working`. Hull Tactical это code competition,
+его сабмит делается только из ноутбука в Kaggle.
 
 ## Лицензия
 

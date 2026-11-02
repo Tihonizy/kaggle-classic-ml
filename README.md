@@ -35,9 +35,12 @@ pip install -r requirements.txt
 kaggle competitions download -c titanic -p titanic/data
 ```
 
-Titanic and House Prices read `data/train.csv` and `data/test.csv` relative to the notebook.
-Hull Tactical is a code competition: on Kaggle it reads from `/kaggle/input`, locally from `data/`
-(`kaggle competitions download -c hull-tactical-market-prediction -p hull-tactical-market-prediction/data`).
+Locally every notebook reads the competition files from `data/` next to it and writes `submission.csv` there
+(Hull Tactical: `kaggle competitions download -c hull-tactical-market-prediction -p hull-tactical-market-prediction/data`).
+
+Every notebook starts with an Environment cell with one flag, `ON_KAGGLE = False`. Set it to `True` before running the
+notebook on Kaggle: the data is then read from `/kaggle/input` and the submission is written to `/kaggle/working`.
+Hull Tactical is a code competition and has to be submitted from a Kaggle notebook.
 
 ## License
 
