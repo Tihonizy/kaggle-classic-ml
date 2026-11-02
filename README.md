@@ -14,6 +14,8 @@ own folder, and notebooks are numbered in the order they were written.
 | [House Prices](house-prices-advanced-regression-techniques) | Predict sale price of a house from 79 features | RMSE of log price | Missing values imputed with KNN, engineered area and age features, log-transformed target, CatBoost with early stopping, SHAP feature importance | 0.108 RMSE on the hold-out split |
 | [Hull Tactical Market Prediction](hull-tactical-market-prediction) | Predict next-day S&P 500 excess returns and size a position | Volatility-adjusted Sharpe ratio | Chronological split (last 20% of days for validation), imputation and scaling fitted on past days only, CatBoost regressor, served through the Kaggle evaluation API | 0.563 on the last 20% of days, below buy and hold (0.624) |
 
+The Hull Tactical notebook earned a Kaggle bronze notebook medal.
+
 ## Repository layout
 
 ```
