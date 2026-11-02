@@ -10,9 +10,9 @@
 
 | Проект | Задача | Метрика | Подход | Локальный результат |
 |---|---|---|---|---|
-| [Titanic](titanic) | Предсказать, выжил ли пассажир | Accuracy | Признаки из титула и палубы, фильтрация выбросов по IQR, one-hot кодирование, дерево решений с подбором параметров через Hyperopt, 10-fold CV | 0.827, лучшая accuracy на CV при подборе |
+| [Titanic](titanic) | Предсказать, выжил ли пассажир | Accuracy | Признаки из титула и палубы, фильтрация выбросов по IQR, one-hot кодировщик обучен только на train, дерево решений с подбором параметров через Hyperopt на 5-fold CV | 0.809 ± 0.041 accuracy, стратифицированная 10-fold CV |
 | [House Prices](house-prices-advanced-regression-techniques) | Предсказать цену дома по 79 признакам | RMSE логарифма цены | Заполнение пропусков через KNN, признаки площади и возраста, логарифм целевой переменной, CatBoost с early stopping, важность признаков через SHAP | 0.108 RMSE на отложенной выборке |
-| [Hull Tactical Market Prediction](hull-tactical-market-prediction) | Предсказать дневную избыточную доходность S&P 500 и размер позиции | Коэффициент Шарпа с поправкой на волатильность | Отбор признаков без утечек, масштабирование, CatBoost, предсказания через Kaggle evaluation API | 0.648 на валидации |
+| [Hull Tactical Market Prediction](hull-tactical-market-prediction) | Предсказать дневную избыточную доходность S&P 500 и размер позиции | Коэффициент Шарпа с поправкой на волатильность | Разбиение по времени (последние 20% дней на валидацию), заполнение пропусков и масштабирование обучены только на прошлых днях, CatBoost, предсказания через Kaggle evaluation API | 0.563 на последних 20% дней, ниже стратегии buy and hold (0.624) |
 
 ## Структура
 
@@ -36,7 +36,8 @@ kaggle competitions download -c titanic -p titanic/data
 ```
 
 Titanic и House Prices читают `data/train.csv` и `data/test.csv` рядом с ноутбуком.
-Hull Tactical это code competition, он запускается в Kaggle и читает данные из `/kaggle/input`.
+Hull Tactical это code competition: в Kaggle он читает данные из `/kaggle/input`, локально из `data/`
+(`kaggle competitions download -c hull-tactical-market-prediction -p hull-tactical-market-prediction/data`).
 
 ## Лицензия
 
